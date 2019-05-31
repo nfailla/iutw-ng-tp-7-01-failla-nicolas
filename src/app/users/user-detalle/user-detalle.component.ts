@@ -10,10 +10,10 @@ import { DaoService } from '../dao.service';
 })
 export class UserDetalleComponent implements OnInit {
   public user: User;
+
   constructor(
     private route: ActivatedRoute,
     private dao: DaoService,
-
   ) { }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class UserDetalleComponent implements OnInit {
   getUser() {
     const id = + this.route.snapshot.paramMap.get('id');
     this.dao.getUser(id)
-      .subscribe(user => this.user = user);
+      .subscribe(user => { this.user = user; console.log("usuario: " + user); });
   }
 
 }

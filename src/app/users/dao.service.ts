@@ -49,16 +49,18 @@ export class DaoService {
 
   }
 
-  getUser(id: number): Observable<User>{
-    return this.http.get<User>(`${this.url}/&id={id}`).pipe(
-      map(res => {
-          let u = {
-            id: res['id'],
-            email: res['email'],
-            nombre: res['first_name'],
-            apellido: res['last_name'],
-            avatar: res['avatar']
-          }
+  getUser(id: number):Observable<User>{
+    return this.http.get(`${this.url}/&id=${id}`).pipe(
+      //switchMap(res => from(res['data'] as Array<any>)),
+      map(res => { //console.log(JSON.stringify(x['data']));
+            let user = res['data'];
+            let u = {
+              id: user['id'],
+              email: user['email'],
+              nombre: user['first_name'],
+              apellido: user['last_name'],
+              avatar: user['avatar']
+            };
           return u;
         })
     );

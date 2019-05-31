@@ -18,7 +18,7 @@
 					<td>{{ user.id }}</td>
 					<td>{{ user.nombre }}</td>
 					<td>{{ user.apellido }}</td>
-					<td><img src="{{user.avatar}}"></td>
+					<td><a routerLink='/detalle/{{user.id}}'><img src="{{user.avatar}}"></a></td>
 				</tr>
 			</tbody>
 		</table>
