@@ -49,6 +49,21 @@ export class DaoService {
 
   }
 
+  getUser(id: number): Observable<User>{
+    return this.http.get<User>(`${this.url}/&id={id}`).pipe(
+      map(res => {
+          let u = {
+            id: res['id'],
+            email: res['email'],
+            nombre: res['first_name'],
+            apellido: res['last_name'],
+            avatar: res['avatar']
+          }
+          return u;
+        })
+    );
+  }
+
   getUsersPromise(){
   	return this.http.get(this.url)
 	  	.toPromise()
