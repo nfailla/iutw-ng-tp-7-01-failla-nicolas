@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UserslistComponent } from './userslist/userslist.component';
+import { UserDetalleComponent } from './user-detalle/user-detalle.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { UserslistComponent } from './userslist/userslist.component';
     MatCardModule
   ],
   declarations: [
-    UserslistComponent
+    UserslistComponent,
+    UserDetalleComponent
   ],
   exports: [
     UserslistComponent

@@ -60,7 +60,7 @@ interface UserDao {
 	data: Array<User>;
 }
 
-interface User {
+export interface User {
 	id: string;
 	nombre: string;
 	apellido: string;
