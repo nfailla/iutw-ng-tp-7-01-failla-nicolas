@@ -1,3 +1,8 @@
-<div *ngIf="user">
-  <h1>Vista detalle {{user.nombre}}</h1>
+<div *ngIf="user" class="container">
+  <h1><span class="user-id">#{{user.id}} </span>{{user.nombre + ' ' + user.apellido | uppercase}}</h1>
+      <img src='{{user.avatar}}'>
+      <span class="email container">Email: {{user.email}}</span>
+  <br><br>
+  <button (click)='volver()'>Volver</button>
+  
 </div>

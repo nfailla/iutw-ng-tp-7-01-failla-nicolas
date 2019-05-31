@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../dao.service';
 import { ActivatedRoute } from '@angular/router';
 import { DaoService } from '../dao.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-detalle',
@@ -14,6 +15,7 @@ export class UserDetalleComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dao: DaoService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -24,6 +26,10 @@ export class UserDetalleComponent implements OnInit {
     const id = + this.route.snapshot.paramMap.get('id');
     this.dao.getUser(id)
       .subscribe(user => { this.user = user; console.log("usuario: " + user); });
+  }
+
+  volver() {
+    this.location.back();
   }
 
 }
