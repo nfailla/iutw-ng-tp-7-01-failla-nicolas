@@ -1,0 +1,8 @@
+<div *ngIf="user" class="container">
+  <h1><span class="user-id">#{{user.id}} </span>{{user.nombre + ' ' + user.apellido | uppercase}}</h1>
+      <img src='{{user.avatar}}'>
+      <span class="email container">Email: {{user.email}}</span>
+  <br><br>
+  <button class="btn btn-success" (click)='volver()'>Volver</button>
+  
+</div>
